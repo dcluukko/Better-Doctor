@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     const first = $("first-name-doc").val();
     const last = $("last-name-doc").val();
-    const symptom = $("symptom").val();
+    $(".output").empty();
+    let promise = finder.findDoctor(first, last);
   });
 });
