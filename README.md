@@ -21,16 +21,21 @@
 ## Setup/Installation Requirements
 
 1. To Run this webpage, open the command prompt and type:
-$ git clone : https://github.com/dcluukko/Ind-proj-4-Pizza-Parlor.git
+$ git clone : https://github.com/dcluukko/ind-proj-6-better-doctor.git
 2. Navigate into the ind-proj-4 directory
 $ cd desktop/ind-proj-4
 3. Open the directory to VS Code.
 $ code .
-4. Open the index.html webpage
+4. Install npm packages
+$ npm install
+6. Build npm packages
+$ npm build
+7. Open webpage with npm
+$ npm run start
+OR
+8. Open the webpage with command prompt
 $ open index.html
-6. On the webpage select your pizza size in the dropdown menu and select as many toppings as wanted by checking the check boxes.
-7. Click the button "Pizza Time"
-8. The selection form will disapeer. Your pizza size, a list of toppings, and the price of your order will appear. 
+9. Search for a specific doctor by inputting their first and last name
 ## Known Bugs
 * No known bugs at this time.
 
