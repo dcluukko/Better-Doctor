@@ -30,5 +30,17 @@ $(document).ready(function () {
     })
   });
 
-  $(".ymptom-search")
+  $(".symptom-search").submit(function (event) {
+    event.preventDefault();
+    const symptom = $("#symptom").val();
+    $(".output").empty();
+    let promise = finder.findDoctorWithSymptom(symptom);
+    promise.then(function (response) {
+      $(".symptom-search")[0].reset();
+      parseDate(response);
+    }, function (error) {
+      errorMessage(error)
+    })
+  });
+})
 });
