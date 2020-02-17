@@ -1,19 +1,19 @@
 # Project Name
-
+Doctor Finder API 
 ####  Date
+February 2020
 
 #### By **Dana Luukko**
 
 ## Description
-
-
-
+Using the Doctor Finder API, this webpage connects the user with a doctor based on a search of the doctor's name or the user's symptom. 
 
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | Behavior | Input| Output |
-
+| User Searches for Doctor by Name | "Nickels" | Dr. Nickels infomation is displayed |
+| User searches by symptpm | "sinus inflamtion" | Doctors linked with the ability to help with user's symptom returned |
 
 
 
@@ -45,7 +45,7 @@ $ open index.html
 * CSS
 * BootStrap
 * HTML
-
+* Doctor Finder API
 
 ## Support and contact details
 

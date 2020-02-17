@@ -1,7 +1,7 @@
+import { DoctorFinder } from 'src/doctor-search.js';
+// import { DoctorDataArray } from 'src/doctor-data-array.js';
+// import { Doctor } from './doctor-contact-info';
 import $ from 'jquery';
-import { DoctorFinder } from './doctor-search';
-import { DoctorDataArray } from './../src/doctor-data-array';
-import { Doctor } from './doctor-contact-info';
 import 'boostrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
