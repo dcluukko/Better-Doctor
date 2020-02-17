@@ -4,6 +4,7 @@ import { DoctorFinder } from 'src/doctor-search.js';
 import $ from 'jquery';
 import 'boostrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
 
 //show doctors 
 function showDoctorInfo(doctors) {
