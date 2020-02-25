@@ -1,8 +1,8 @@
-import { DoctorFinder } from 'src/doctor-search.js';
+import { DoctorFinder } from './doctor-search.js';
 // import { DoctorDataArray } from 'src/doctor-data-array.js';
 // import { Doctor } from './doctor-contact-info';
 import $ from 'jquery';
-import 'boostrap';
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
@@ -51,37 +51,36 @@ function errorMessage(error) {
 }
 
 $(document).ready(function () {
+
+  $(".find-doc-by-name").submit(function (event) {
+    event.preventDefault();
+    const name = $("name").val();
+    $(".output").empty();
+    let promise = finder.findDoctorByName(name);
+    promise.then(function (response) {
+      $(".find-doc-by-name")[0].reset();
+      parseData(response);
+    }, function (error) {
+      errorMessage(error)
+    })
+  });
+
+  $(".symptom-search").submit(function (event) {
+    event.preventDefault();
+    const keyword = $("#symptom").val();
+    $(".output").empty();
+    let promise = finder.findDoctorByKeyword(keyword);
+    promise.then(function (response) {
+      $(".symptom-search")[0].reset();
+      parseData(response);
+    }, function (error) {
+      errorMessage(error)
+    })
+  });
   const symptoms = new SymptomFinder()
   let promise = symptoms.findSymptom()
   promise.then(function (response) {
     parseSymptomData(response)
     const finder = new DoctorFinder();
-
-    $(".doctor-finder-name").submit(function (event) {
-      event.preventDefault();
-      const first = $("#doctor-first-name").val();
-      const last = $("#doctor-last-name").val();
-      $(".output").empty();
-      let promise = finder.findDoctorByName(first, last);
-      promise.then(function (response) {
-        $(".doctor-finder-name")[0].reset();
-        parseData(response);
-      }, function (error) {
-        errorMessage(error)
-      })
-    });
-
-    $(".doctor-finder-keyword").submit(function (event) {
-      event.preventDefault();
-      const keyword = $("#keyword").val();
-      $(".output").empty();
-      let promise = finder.findDoctorByKeyword(keyword);
-      promise.then(function (response) {
-        $(".doctor-finder-keyword")[0].reset();
-        parseData(response);
-      }, function (error) {
-        errorMessage(error)
-      })
-    });
   })
 });
