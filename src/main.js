@@ -1,12 +1,11 @@
 import { DoctorFinder } from './doctor-search.js';
-// import { DoctorDataArray } from 'src/doctor-data-array.js';
-// import { Doctor } from './doctor-contact-info';
+import { DoctorDataArray } from './doctor-data-array';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
-//show doctors 
+//show doctors s
 function showDoctorInfo(doctors) {
   for (let i = 0; i < doctors.length; i++) {
     $(".output").append(
@@ -22,35 +21,26 @@ function showDoctorInfo(doctors) {
 }
 
 function parseData(response) {
-  let body = JSON.parse(response);
+  let body = response;
   const data = body.data;
-  const doctorData = new DoctorData();
-  doctorData.createAllDocs(data);
-  const allDocs = doctorData.allDocs;
-  if (allDocs.length === 0) {
-    $("#no-doctors").show();
+  const DoctorDataArray = new DoctorDataArray();
+  DoctorDataArray.createAllDocs(data);
+  const docArray = DoctorDataArray.docArray;
+  if (docArray.length === 0) {
+    $("#nomatch").show();
   } else {
-    $("#no-doctors").hide();
-    showDoctorInfo(allDocs)
+    $("#nomatch").hide();
+    showDoctorInfo(docArray)
   }
-}
-
-function parseSymptomData(response) {
-  let body = JSON.parse(response);
-  const allSymptoms = body.data;
-  const allSymptomsArray = [];
-  for (let i = 0; i < allSymptoms.length; i++) {
-    allSymptomsArray.push(`<option value="${allSymptoms[i].name}">${allSymptoms[i].name}</option>`);
-  }
-  $("#keyword").html(allSymptomsArray.join(''));
 }
 
 function errorMessage(error) {
-  $("#error").show();
-  $(".error").html(`There was error processing your query: ${error.message}`)
+  $("#nomatch").show();
+  $(".alert").html(`There was error processing your query: ${error.message}`)
 }
 
 $(document).ready(function () {
+  const finder = new DoctorFinder();
 
   $(".find-doc-by-name").submit(function (event) {
     event.preventDefault();
@@ -77,10 +67,4 @@ $(document).ready(function () {
       errorMessage(error)
     })
   });
-  const symptoms = new SymptomFinder()
-  let promise = symptoms.findSymptom()
-  promise.then(function (response) {
-    parseSymptomData(response)
-    const finder = new DoctorFinder();
-  })
 });
