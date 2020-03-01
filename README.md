@@ -12,9 +12,8 @@ Using the Doctor Finder API, this webpage connects the user with a doctor based 
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | Behavior | Input| Output |
-| User Searches for Doctor by Name | "Nickels" | Dr. Nickels infomation is displayed |
-| User searches by symptpm | "sinus inflamtion" | Doctors linked with the ability to help with user's symptom returned |
-
+| User Searches for Doctor by name or symptom | "Anderson" |All doctors with names matching Anderson are displayed. Information included in the display are name, address, phone number, and website if the website is available. |
+| User Searches for Doctor by name or symptom | "toothache" | All doctors with the expertise matching the ailment "toothache" are displayed. Information included in the display are name, address, phone number, and website if the website is available. |
 
 
 
@@ -35,7 +34,7 @@ $ npm run start
 OR
 8. Open the webpage with command prompt
 $ open index.html
-9. Search for a specific doctor by inputting their first and last name
+9. Search for a docor by inputting their name or your symptom.
 ## Known Bugs
 * No known bugs at this time.
 
