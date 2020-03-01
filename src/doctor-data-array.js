@@ -4,8 +4,8 @@ export class DoctorDataArray {
   constructor() {
     this.docArray = [];
   }
-  createDocArray(firstName, lastName, street, city, state, zip, phoneNumber, newPatient, lat, long, ) {
-    const newDoctor = new Doctor(firstName, lastName, street, city, state, zip, phoneNumber, newPatient, lat, long);
+  createDocArray(firstName, lastName, street, city, state, zip, phoneNumber, newPatient, lat, long, website) {
+    const newDoctor = new Doctor(firstName, lastName, street, city, state, zip, phoneNumber, newPatient, lat, long, website);
     this.docArray.push(newDoctor)
   }
   createAllDocs(data) {
@@ -19,6 +19,7 @@ export class DoctorDataArray {
       const zip = data[i].practices[0].visit_address.zip;
       const phoneNumber = data[i].practices[0].phones[0].number;
       let newPatient = data[i].practices[0].accepts_new_patients;
+      let website = data[i].practices[0].website;
       const lat = data[i].practices[0].lat;
       const long = data[i].practices[0].lon;
       this.createDoctorObject(firstName, lastName, street, aptNum, city, state, zip, phoneNumber, newPatient, lat, long);
